@@ -1,0 +1,1140 @@
+definitions:
+  securitySchemes:
+    tokenauth:
+      type: basic
+      description: bearer auth
+      name: Authorization
+      in: header
+    demouser:
+      type: basic
+  #-------------------------------------------------------------------
+  #---------------------------ADMIN----------------------------------
+  #-------------------------------------------------------------------
+  signUp:
+    properties:
+      mobileNumber:
+        type: string
+      countryCode:
+        type: string
+      email:
+        type: string
+      deviceToken:
+        type: string 
+      deviceType:
+        type: string
+
+  addDeliveryAddress:
+    properties:
+      city:
+        type: string
+      StreetName:
+        type: string
+      BuildingAddress:
+        type: string
+      postalCode:
+        type: string
+      nickname:
+        type: string
+      latitude:
+        type: number 
+      longitude:
+        type: number
+      mobileNumber:
+        type: string
+      countryCode:
+        type: string
+      location:
+        type: string
+
+  editDeliveryAddress:
+    properties:
+      city:
+        type: string
+      StreetName:
+        type: string
+      BuildingAddress:
+        type: string
+      latitude:
+        type: number 
+      longitude:
+        type: number
+      location:
+        type: string         
+
+  deleteDeliveryAddress:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+  getImageUrl:
+    required:
+      - image
+    properties:
+      image:
+        type: string
+
+  editProfile:
+    properties:
+      countryCode:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      dateOfBirth:
+        type: string
+      city:
+        type: string
+      streetName:
+        type: string
+      buildingName:
+        type: string
+      latitude:
+        type: string
+      longitude:
+        type: string
+      email:
+        type: string
+      profilePic:
+        type: string
+      passCode:
+        type: string
+      location:
+        type: string
+      userName:
+        type: string  
+      countryOfResidence:
+        type: string
+      marketingOfferNotification:
+        type: boolean
+        default: false
+      transactionNotification:
+        type: boolean
+        default: false  
+      investmentNewsNotification:
+        type: boolean
+        default: false
+
+  forgotPassCode:
+    required:
+      - userId
+    properties:
+      userId:
+        type: string        
+
+  resendOTPForgotPasscode:
+    properties:
+      email:
+        type: string
+
+  verifyOTP:
+    required:
+      - mobileNumber
+      - otp
+    properties:
+      mobileNumber:
+        type: string
+      otp:
+        type: integer
+
+
+  resendOTP:
+    properties:
+      email:
+        type: string
+
+
+
+  forgotPassword:
+    properties:
+      email:
+        type: string
+
+
+  resetPassword:
+    required:
+      - email
+      - newPassword
+      - confirmPassword
+    properties:
+      email:
+        type: string
+      newPassword:
+        type: string
+      confirmPassword:
+        type: string
+
+
+  
+  login:
+    properties:
+      userId:
+        type: string
+      passCode:
+        type: string 
+
+     
+  
+
+  loginAdmin:
+    required:
+      - email
+      - password
+    properties:
+      email:
+        type: string
+      password: 
+        type: string
+      ip_Address: 
+        type: string  
+      browser: 
+        type: string 
+      location_place: 
+        type: string
+      activeDate_time: 
+        type: string    
+          
+
+  updateAdminProfile:
+    properties:
+      name:
+        type: string
+      email:
+        type: string
+      profilePic:
+        type: string
+
+
+     
+  changePassword:
+    required:
+      - oldPassword
+      - newPassword
+    properties:
+      oldPassword:
+        type: string
+      newPassword: 
+        type: string
+
+
+  createPayment:
+    required:
+      - cardNumber
+      - expMonth
+      - expYear
+      - cvc
+    properties:
+      cardNumber:
+        type: string
+      expMonth: 
+        type: string
+      expYear: 
+        type: string
+      cvc: 
+        type: string
+
+
+  # addStaticContent:
+  #   required:
+  #     - type
+  #     - title
+  #     - description
+  #   properties:
+  #     type:
+  #       type: string
+  #     title: 
+  #       type: string
+  #     description: 
+  #       type: string
+
+
+  editStaticContent:
+    required:
+      - _id
+      - title
+      - description
+    properties:
+      _id:
+        type: string
+      title: 
+        type: string  
+      description: 
+        type: string
+      url: 
+        type: string
+  
+          
+  addFAQ:
+    required:
+      - question
+      - answer
+    properties:
+      question:
+        type: string
+      answer: 
+        type: string
+
+
+  editFAQ:
+    required:
+      - _id
+      - question
+      - answer
+    properties:
+      _id:
+        type: string
+      question: 
+        type: string
+      answer: 
+        type: strings
+
+
+  deleteUser:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string
+
+
+  deleteFAQ:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string 
+
+
+  blockUnblockUser:
+    required:
+      - _id
+    properties:
+      _id:
+        type: string   
+ 
+
+
+  twoFactorAuthentication:
+    required:
+      - userId
+    properties:
+      userId:
+        type: string
+      code:
+        type: string
+   
+  applyKYC:
+    required:
+      - country
+      - kycProfilePic
+    properties:
+      country: 
+        type: string
+      kycProfilePic: 
+        type: string
+
+
+  addKYC:
+    properties:
+      fullName: 
+        type: string
+      gender: 
+        type: string
+      address: 
+        type: string
+      country: 
+        type: string
+      countryCode: 
+        type: string
+      state: 
+        type: string
+      city: 
+        type: string
+      fullAddress: 
+        type: string
+      zipCode: 
+        type: string
+      dateOfBirth: 
+        type: string
+      profilePic: 
+        type: string
+      image: 
+        type: string
+      idType:
+        type: object
+        properties:
+          idNumber:
+            type: string
+          documentName:
+            type: string
+          frontImage:
+            type: string
+          backImage:
+            type: string
+  
+  
+  
+  lockAccountBalanace:
+    properties:
+      type: 
+        type: string
+      LockedBalance:
+        type: array
+        items:
+          properties:
+            balance: 
+              type: number
+            interestRate:
+              type: string
+            noOfDays:
+              type: string
+            endDate:
+              type: string
+
+
+  notificationPermision:
+    properties:
+      notificationPermission:
+        type: array
+        items:
+          properties:
+            marketingOffers: 
+              type: boolean
+              default: false  
+            transactions:
+              type: boolean
+              default: false  
+            investmentNews:
+              type: boolean
+              default: false
+
+
+  updateSubscriptionAndFeeMngmt:
+    properties:
+      subscriptionPlanType:   
+        type: string
+      subscriptionMonthly:   
+        type: string
+      subscriptionYearly: 
+        type: string
+      lockedSaving:
+        type: array
+        items:
+          type: object
+          properties:
+            noOfDays:
+              type: string
+            interestRate:
+              type: string
+      unlockedSaving:
+        type: array
+        items:
+          type: object
+          properties:
+            noOfDays:
+              type: string
+            interestRate:
+              type: string 
+      sendInterSend: 
+        type: string  
+      deliveryFee: 
+        type: string    
+      withdrawMoneyBackToCard: 
+        type: string    
+
+
+  issueCardFee:
+    properties:
+      subscriptionId:   
+        type: string
+      cardColor: 
+        type: string
+      cardType: 
+        type: string
+      issuanceFee:
+        type: array
+        items:
+          properties:
+            cardCost: 
+              type: string
+            customColor:
+              type: string
+            paidOnce: 
+              type: string
+            monthlySubscription:
+              type: string
+
+
+  issueCard:
+    properties:
+      cardName:   
+        type: string
+      cardExpirydate: 
+        type: string
+      cardColor: 
+        type: string
+      cardType: 
+        type: string
+      deliveryAddress:
+        type: array
+        items:
+          properties:
+            city:
+              type: string
+            streetName: 
+              type: string
+            buildingnameAndFloor:
+              type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+      cardDetail:
+        type: array
+        items:
+          properties:
+            cardNumber:
+              type: string
+      bankDetail:
+        type: array
+        items:
+          properties:
+            beneficiaryName: 
+              type: string
+            bankName:
+              type: string
+            ibanNumber: 
+              type: string
+            swiftCode: 
+              type: string
+            accountNumber:
+              type: string
+            address: 
+              type: string
+            note: 
+              type: string
+
+  issuePhysicalCard:
+    properties:
+      cardName:   
+        type: string
+      cardColor:   
+        type: string
+      pin: 
+        type: string
+      defaultAddress:   
+        type: boolean
+        default: false    
+      cardType: 
+        type: string        
+      deliveryAddress:
+        type: array
+        items:
+          properties:
+            city:
+              type: string
+            streetName: 
+              type: string
+            buildingnameAndFloor:
+              type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+
+  addAmountInCurrentAccount:
+    properties:
+      type: 
+        type: string
+      depositMethod: 
+        type: string
+      account:
+        type: array
+        items:
+          properties:
+            accountID: 
+              type: string
+      deposit:
+        type: array
+        items:
+          properties:
+            deposit: 
+              type: string
+            depositMethod:
+              type: string
+      deliveryAddress:
+        type: array
+        items:
+          properties:
+            city: 
+              type: string
+            streetName:
+              type: string
+            buildingNameAndFloor: 
+              type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+            defaultAddress:
+              type: boolean
+              default: false
+
+  signingup:
+    properties:
+      phone: 
+        type: string
+      password: 
+        type: string
+      analyticsCallback: 
+        type: string
+
+  confirmOtp:
+    properties:
+      phone: 
+        type: string
+      smsCode: 
+        type: string
+      fingerprint: 
+        type: string
+  
+  startKyc:
+    properties:
+      number: 
+        type: string
+      password: 
+        type: string
+
+  kucoinBrokerTransfer:
+    properties:
+      currency: 
+        type: string
+      amount: 
+        type: string
+      direction: 
+        type: string
+      accountType: 
+        type: string
+      specialUid: 
+        type: string
+      specialAccountType: 
+        type: string
+
+  
+  addAmountByStripeInCurrent:
+    properties:
+      type: 
+        type: string
+      depositMethod: 
+        type: string
+      deposit:
+        type: array
+        items:
+          properties:
+            deposit: 
+              type: string
+            depositMethod:
+              type: string
+      cardDetail:
+        type: array
+        items:
+          properties:
+            cardNumber: 
+              type: string
+            expiryDate:
+              type: string
+            cvv: 
+              type: string
+            cardHolder: 
+              type: string
+ 
+  addAmountByStripeInConfirm:
+    properties:
+      paymentMethod: 
+        type: string
+      amount: 
+        type: string
+      type: 
+        type: string
+      cardDetail:
+        type: array
+        items:
+          properties:
+            cardNumber: 
+              type: string
+            expiryDate:
+              type: string
+            cvv: 
+              type: string
+            cardHolder: 
+              type: string
+
+  unLockAccountBalanace:  
+    properties:
+      type: 
+        type: string
+      lockBalaneId: 
+        type: string
+
+  unLockAccountBalanaceRequest:  
+    properties:
+      type: 
+        type: string
+      lockBalaneId: 
+        type: string
+      accountHolderId: 
+        type: string
+
+
+  sendMoneyToRivalCardUser:  
+    properties:
+      amountToSend: 
+        type: string
+      cardNumber: 
+        type: string      
+      rivalUserName: 
+        type: string 
+      accountType: 
+        type: string 
+
+  sendMoneyToRivalUser:  
+    properties:
+      friendId: 
+        type: string
+      amount: 
+        type: string      
+      accountType: 
+        type: string 
+
+
+  sendMoneyToBankAccount:  
+    properties:
+      beneficiaryName: 
+        type: string
+      beneficiaryAddress: 
+        type: string      
+      IBANnumber: 
+        type: string 
+      beneficiaryBank: 
+        type: string
+      bankAddress: 
+        type: string      
+      country: 
+        type: string 
+      swiftCode: 
+        type: string 
+      amount: 
+        type: string
+      currency: 
+        type: string      
+      otherDetails: 
+        type: string 
+      reasonAndPurpose: 
+        type: string 
+      fromAccountType: 
+        type: string 
+
+  sendMoneyByDeliveryAddress:  
+    properties:
+      accountType:
+        type: string
+      amount:
+        type: string
+      deliveryAddress:
+        type: array
+        items:
+          properties:
+            city: 
+              type: string
+            streetName:
+              type: string
+            buildingNameAndFloor: 
+              type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+            mobileNumber:
+              type: string
+
+  saveCommisionRate:  
+    properties:
+      countryId:
+        type: string
+      typeField:
+        type: string
+      requiredFields:
+        type: array 
+      commisionRate:
+        type: array
+        items:
+          properties:
+            priceRange: 
+              type: string
+            rate:                 
+              type: string
+            isTrue: 
+              type: boolean
+              default: false
+
+
+
+  whatIsRival:  
+    properties: 
+      typeField:
+        type: string 
+
+
+
+
+  applyFieldsAndCommisionRate:  
+    properties:
+      countryId:
+        type: string
+      requiredFields:
+        type: array
+        items:
+          properties:
+            name: 
+              type: boolean
+              default: false
+            phoneNumber:
+              type: boolean
+              default: false
+            country: 
+              type: boolean
+              default: false
+            pinCode: 
+              type: boolean
+              default: false
+            state:
+              type: boolean
+              default: false
+            city: 
+              type: boolean
+              default: false
+      commisionRate:
+        type: array
+        items:
+          properties:
+            priceRange: 
+              type: string
+            rate:                 
+              type: string
+            isTrue: 
+              type: boolean
+              default: false
+
+
+  editKYC:
+    properties:
+      fullName: 
+        type: string
+      gender: 
+        type: string
+      address: 
+        type: string
+      country: 
+        type: string
+      countrycode: 
+        type: string
+      state: 
+        type: string
+      city: 
+        type: string
+      fullAddress: 
+        type: string
+      zipCode: 
+        type: string
+      dateOfBirth: 
+        type: string
+      profilePic: 
+        type: string
+      image: 
+        type: string
+      passport:
+        type: object
+        properties:
+          idNumber:
+            type: string
+          documentName:
+            type: string
+          frontImage:
+            type: string
+          backImage:
+            type: string
+
+  addSupport:
+    properties:
+      title:
+        type: string
+      message:
+        type: array
+        items:
+          properties:
+            comment: 
+              type: string
+            documentUrl:
+              type: string
+      
+
+  editSupport:
+    required:
+      - _id
+    properties:
+      title:
+        type: string
+      message:
+        type: array
+        comment: 
+          type: string
+      documentUrl:
+        type: string
+      
+  addSubAdmin:
+    required:
+      - fullName
+      - mobileNumber
+      - email
+      - permissions
+    properties:
+      email:
+        type: string
+      fullName:
+        type: string
+      countryCode:
+        type: string
+      mobileNumber:
+        type: string
+      permissions:
+        type: object
+        properties:
+          home:
+            type: boolean
+            default: false
+          userManagement:
+            type: boolean
+            default: false
+          investing:
+            type: boolean
+            default: false
+          card:
+            type: boolean
+            default: false
+          savings:
+            type: boolean
+            default: false
+          moneyTransfer:
+            type: boolean
+            default: false
+          support:
+            type: boolean
+            default: false
+          referralProgram:
+            type: boolean
+            default: false
+          subscriptionAndFeeMngmt:
+            type: boolean
+            default: false
+          analyticAndFinance:
+            type: boolean
+            default: false
+          salesAndMarketing:
+            type: boolean
+            default: false
+          pushNotification:
+            type: boolean
+            default: false
+          loans:
+            type: boolean
+            default: false
+          staticInformation:
+            type: boolean
+            default: false
+          subAdminManagement:
+            type: boolean
+            default: false
+ 
+  updateSubAdmin:
+    required:
+      - subAminId
+    properties:
+      subAminId:
+        type: string
+      email:
+        type: string
+      fullName:
+        type: string
+      countryCode:
+        type: string
+      mobileNumber:
+        type: string
+      permissions:
+        type: object
+        properties:
+          home:
+            type: boolean
+            default: false
+          userManagement:
+            type: boolean
+            default: false
+          investing:
+            type: boolean
+            default: false
+          card:
+            type: boolean
+            default: false
+          savings:
+            type: boolean
+            default: false
+          moneyTransfer:
+            type: boolean
+            default: false
+          support:
+            type: boolean
+            default: false
+          referralProgram:
+            type: boolean
+            default: false
+          subscriptionAndFeeMngmt:
+            type: boolean
+            default: false
+          analyticAndFinance:
+            type: boolean
+            default: false
+          salesAndMarketing:
+            type: boolean
+            default: false
+          pushNotification:
+            type: boolean
+            default: false
+          loans:
+            type: boolean
+            default: false
+          staticInformation:
+            type: boolean
+            default: false
+          subAdminManagement:
+            type: boolean
+            default: false
+
+  coinPermission:
+    properties:
+      permissions:
+        type: array
+        items:
+          type: object
+          properties:
+            coinId:
+              type: string
+            permission:
+              type: boolean
+              default: true
+  buySubscription:
+    properties:
+      subscriptionId:
+        type: string
+        require: true
+      paymentMethod:
+        type: string
+        require: true
+      amount:
+        type: string
+        require: true
+      subscriptionType:
+        type: string
+        require: true
+      deliveryAddress:
+        type: array
+        items:
+          properties:
+            city: 
+              type: string
+            streetName:
+              type: string
+            buildingNameAndFloor: 
+              type: string
+            location:
+              type: object
+              properties:
+                latitude:
+                  type: string
+                longitude:
+                  type: string
+      cardDetail:
+        type: array
+        items:
+          properties:
+            cardNumber: 
+              type: string
+            expiryDate:
+              type: string
+            cvv: 
+              type: string
+
+
+
+
+  getTransactions:
+    properties:
+      transStatusType:
+        type: string
+      startDate:
+        type: string
+      endDate:
+        type: string
+      page:
+        type: number
+      limit:
+        type: number
+
+  cashCollectionRequest:
+    properties:
+      locationID: 
+        type: string
+      amount: 
+        type: number
+      driverFee: 
+        type: number
+      totalAmount: 
+        type: number
+
+  addLocation:
+    properties:
+      city: 
+        type: string
+      streetName: 
+        type: string 
+      mobileNumber: 
+        type: string
+      buildingName: 
+        type: string
+      location: 
+        type: string
+      longitude: 
+        type: number
+      latitude: 
+        type: number
+
+  Adminlogin:
+    required:
+    properties:
+      email:
+        type: string
+      password:
+        type: string 
+

@@ -1,0 +1,44 @@
+{
+  "port": 2001,
+  "hostAddress": "172.16.96:1989",
+  "databaseHost": "127.0.0.1",
+  "databasePort": "27017",
+  "databaseName": "Apollo_Hospital",
+  "jwtsecret": "nodejwt",
+  "jwtresetsecret": "nodejwt",
+  "jwtOptions": {
+    "expiresIn": "24h"
+  },
+  "swaggerDefinition": {
+    "info": {
+      "title": "Apollo_Hospital Application",
+      "version": "2.0",
+      "description": "Apollo_Hospital Application API Docs"
+    },
+ 
+    "basePath": "/api/v1",
+    "securityDefinitions": {
+      "tokenauth": {
+        "type": "apiKey",
+        "name": "Authorization",
+        "in": "header"
+      }
+    }
+  },
+
+  
+    "twilio": {
+      "accountSid": "AC965df6e7b36d1667f803342a67995f72",
+      "authToken": "c813e916ec99ffff0b4ec0f5c32cc44c",
+      "number": "+12674587351"
+    },                  
+
+    
+ 
+  "nodemailer": {
+    "service": "gmail",
+    "email": "email",
+    "password": "password"
+  }
+}
+
