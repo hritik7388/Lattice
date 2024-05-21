@@ -28,9 +28,9 @@
 
   
     "twilio": {
-      "accountSid": "AC965df6e7b36d1667f803342a67995f72",
-      "authToken": "c813e916ec99ffff0b4ec0f5c32cc44c",
-      "number": "+12674587351"
+      "accountSid": "accountSid",
+      "authToken": "authToken",
+      "number": "number"
     },                  
 
     
