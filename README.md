@@ -1,8 +1,4 @@
-# lattice
-
-
-# Fithun Application
-
+# lattice 
 ## Getting Started
 
 ### Prerequisites
